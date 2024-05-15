@@ -1,0 +1,4 @@
+## img 가져다 쓰는법
+    - publc 안에다가 넣고
+    <img src={process.env.PUBLIC_URL + '/현호.png'} width="90%"/> 
+    이런식으로 PUBLIC_URL 을 사용하면 된다.

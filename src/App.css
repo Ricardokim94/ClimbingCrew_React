@@ -24,6 +24,18 @@
   color: white;
 }
 
+.main-bg {
+  height: 400px;
+  /* 이미지 넣는 법 url() */
+  background-image: url('./MEM_.png'); 
+  background-size: 75%;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  
+}
+
 .App-link {
   color: #61dafb;
 }
