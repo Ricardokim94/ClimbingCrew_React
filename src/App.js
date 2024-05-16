@@ -29,24 +29,33 @@ function App() {
       {/* 가운데 사진3개 */}
       <div className="container">
         <div className="row">
-          <div className="col-md-4">
-            <img src={process.env.PUBLIC_URL + '/창목이.png'} width="90%"/> 
-            <h4>{memData[0].name}</h4>
-            <p>{memData[0].detail}</p>
-          </div>
-          <div className="col-md-4">
-          <img src={process.env.PUBLIC_URL + '/현호.png'} width="90%"/> 
-            <h4>{memData[1].name}</h4>
-            <p>{memData[1].detail}</p>
-          </div>
-          <div className="col-md-4">
-          <img src={process.env.PUBLIC_URL + '/영인이.png'} width="90%"/> 
-            <h4>{memData[2].name}</h4>
-            <p>{memData[2].detail}</p>
-          </div>
+          {/* <Card memData={memData[0]} i={1}></Card>
+          <Card memData={memData[1]} i={2}></Card>
+          <Card memData={memData[2]} i={3}></Card>  */}
+          {/*반복문 map으로 수정 */}
+          {
+            memData.map((a,i)=>{
+              return(
+                <Card memData={memData[i]} i={i}></Card>
+              )
+            })
+          }  
         </div>
       </div>
 
+    </div>
+  );
+}
+
+
+function Card(props) {
+
+  return (
+    <div className="col-md-4">
+      {/* 이미지 사진 i번쨰 public 폴더에 있는 것 받아오는 방법 */}
+      <img src={`${process.env.PUBLIC_URL}/mem${props.i+1}.png`} width="90%" />
+      <h4>{props.memData.name}</h4>
+      <p>{props.memData.detail}</p>
     </div>
   );
 }
