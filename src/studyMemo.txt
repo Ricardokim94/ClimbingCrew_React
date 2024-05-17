@@ -2,3 +2,11 @@
     - publc 안에다가 넣고
     <img src={process.env.PUBLIC_URL + '/현호.png'} width="90%"/> 
     이런식으로 PUBLIC_URL 을 사용하면 된다.
+
+##router insatll 
+    - npm insatll react-router-dom@6
+    - index.js 가서 App을 BrowserrRouter로 감싸면 된다.
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    - import {Routes,Route,Link} from 'react-router-dom'을 다시 App.js 와서 import
