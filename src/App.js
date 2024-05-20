@@ -13,44 +13,42 @@ function App() {
 
   return (
     <div className="App">
-      {/* Page 나누기 */}
-      <Routes>
-        <Route path="/" element={<div>Main Page입니다.</div>} />
-        <Route path="/detail" element={<div>상세페이지 입니다.</div>} />
-        <Route />
-      </Routes>
-
 
       {/* NavBar */}
       <Navbar bg="dark" data-bs-theme="dark" className="navbar-custom">
         <Container>
           <Navbar.Brand href="#home">Oh-Coach Climbing Crew</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home">MEM</Nav.Link>
-            <Nav.Link href="#features">Aaa</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/detail">detail</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
 
-      {/* 베너 */}
-      <div className='main-bg'></div>
 
-      {/* 가운데 사진3개 */}
-      <div className="container">
-        <div className="row">
-          {/* <Card memData={memData[0]} i={1}></Card>
-          <Card memData={memData[1]} i={2}></Card>
-          <Card memData={memData[2]} i={3}></Card>  */}
-          {/*반복문 map으로 수정 */}
-          {
-            memData.map((a, i) => {
-              return (
-                <Card memData={memData[i]} i={i}></Card>
-              )
-            })
-          }
-        </div>
-      </div>
+      {/* Page 나누기 - main page 일때, 배너랑 나오기 / detail page 일때는 상세 페이지 나오기*/}
+      <Routes>
+        <Route path="/" element={
+          <>
+            <div className='main-bg'></div>{/* 베너 */}
+            <div className="container">{/* 가운데 사진3개 */}
+              <div className="row">
+                {
+                  memData.map((a, i) => {
+                    return (
+                      <Card memData={memData[i]} i={i}></Card>
+                    )
+                  })
+                }
+              </div>
+            </div>
+          </>
+        } />
+        <Route path="/detail" element={<div>상세페이지 입니다.</div>} />
+      </Routes>
+
+
+
 
     </div>
   );
