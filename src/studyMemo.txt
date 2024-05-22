@@ -46,3 +46,14 @@
     )
     }
 
+##syled-compoenet 사용법
+    import styled from "styled-components"; 
+
+    let YellowBtn = styled.button`
+    background : yellow;
+    color : black;
+    padding : 10px;
+    `
+
+    *주의사항 : yellow 쓸때 앞에 대문자로 써야됨.
+    소문자로 쓰니까 style안먹었음.
