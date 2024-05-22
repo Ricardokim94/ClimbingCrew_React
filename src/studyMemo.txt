@@ -17,3 +17,32 @@
     onClick={()=>( navigate('/detail'))}
 
     *navigate(-1)하면 뒤로가기 된다. -2하면 두화면 간다.
+    {/* nested routes 사용법 */}
+        <Route path="/about" element={<About />}>
+          <Route path="member" element={<div>맴버임</div>} />
+          <Route path="location" element={<div>위치임</div>} />
+        </Route>
+        <Route path="/event" element={<EventPage />}>
+          <Route path="one" element={<p>첫 주문시 양배추즙 서비스</p>} />
+          <Route path="two" element={<p>생일기념 쿠폰받기</p>} />
+        </Route>
+    
+    //nested router study example
+    function About() {
+    return (
+        <div>
+        <h4>회사정보임</h4>
+        <Outlet></Outlet>
+        </div>
+    )
+    }
+
+    function EventPage() {
+    return (
+        <div>
+        <h4>오늘의 이벤트</h4>
+        <Outlet></Outlet>
+        </div>
+    )
+    }
+
