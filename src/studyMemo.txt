@@ -10,3 +10,10 @@
             <App />
         </BrowserRouter>
     - import {Routes,Route,Link} from 'react-router-dom'을 다시 App.js 와서 import
+
+##Navigate 함수 사용법
+    - <Nav.Link href="/detail">detail</Nav.Link> 이거를
+    href 대신에 onClick 을 사용한다.
+    onClick={()=>( navigate('/detail'))}
+
+    *navigate(-1)하면 뒤로가기 된다. -2하면 두화면 간다.
