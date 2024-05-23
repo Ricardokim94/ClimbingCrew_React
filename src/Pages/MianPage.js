@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from './Card';
+import axios from 'axios';
 
 function MainPage({ memData }) {
     return (
@@ -16,6 +17,15 @@ function MainPage({ memData }) {
             }
           </div>
         </div>
+        <button onClick={()=>{ //ajax 서버에 요청
+          axios.get('https://codingapple1.github.io/shop/data2.json')
+          .then((data)=>{
+            console.log("data",data.data)
+          })
+          .catch(()=>{
+            console.log('실패했습니다.')
+          })
+        }}>추가 맴버 더보기</button>
       </>
     );
   }

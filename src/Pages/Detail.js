@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 
@@ -10,16 +10,12 @@ function Detail(props) {
   })
 
 
-  let[count, setCount] = useState(0)
-
   let { id } = useParams(); 
   let realId = props.member.find(function(x){ return x.id == id });//정렬되었을때 아이디 값 바뀌는것 방지
   let memberIndex = parseInt(id, 10); // URL의 id를 숫자로 변환 (이미지가 mem1부터 시작한다.)
 
   return (
     <div className="container">
-      {count}
-      <button onClick={()=>{setCount(count+1)}}>button</button>
       <div className="row">
         <div className="col-md-6">
           <img src={`${process.env.PUBLIC_URL}/mem${memberIndex + 1}.png`} width="100%" alt="상품 이미지" />

@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Container, Nav } from 'react-bootstrap'
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom'
 import memData from './mem.js';
+//import plusMemData from "./PlusMemData.js" //member 추가된 데이터
+
 import Detail from './Pages/Detail.js';
 import MainPage from './Pages/MianPage.js';
 import { useState } from 'react';
