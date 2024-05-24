@@ -53,3 +53,14 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* 애니메이션 만들기
+1.동작전 만들기 / 2.동작후 만들기 / 3.transition 주기 */
+.start {
+  opacity : 0
+}
+.end {
+  opacity : 1;
+  transition : opacity 0.5s;
+}
