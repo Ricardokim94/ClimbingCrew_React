@@ -9,6 +9,13 @@ function Detail(props) {
   let realId = props.member.find(x => x.id === memberIndex); // id를 숫자로 변환하여 비교
   let [tab, changeTab] = useState(0); // Tab화면 3가지 저장/상태가 3가지니까 숫자로 상태값 설정
 
+  let [fdde2, setFade2] = useState('')
+  useEffect(()=>{
+    setFade2('end')
+    return ()=>{
+      setFade2('')
+    }
+  },[])
 
   // 데이터가 존재하는지 확인
   if (!realId) { //return 밖에서 if문은 사용 가능하다.
@@ -16,7 +23,8 @@ function Detail(props) {
   }
 
   return (
-    <div className="container">
+    //<div className="container">
+  <div className={'container start '+ fdde2}>
       <div className="row">
         <div className="col-md-6">
           <img src={`${process.env.PUBLIC_URL}/mem${memberIndex + 1}.png`} width="100%" alt="상품 이미지" />
