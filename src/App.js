@@ -5,6 +5,8 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import memData from './mem.js';
 import Detail from './Pages/Detail.js';
 import Card from './Pages/Card.js';
+import Together from './Pages/Together.js';
+
 import { useState } from 'react';
 
 function App() {
@@ -53,6 +55,9 @@ function App() {
           </>
         } />
         <Route path="/detail/:id" element={<Detail member={member} />} />
+
+        <Route path="/together" element={ <Together/> } />
+
       </Routes>
     </div>
   );
