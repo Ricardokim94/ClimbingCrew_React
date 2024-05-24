@@ -11,7 +11,7 @@ function Detail(props) {
 
 
   let { id } = useParams(); 
-  let realId = props.member.find(function(x){ return x.id == id });//정렬되었을때 아이디 값 바뀌는것 방지
+  let realId = props.member.find(function(x){ return x.id === id });//정렬되었을때 아이디 값 바뀌는것 방지
   let memberIndex = parseInt(id, 10); // URL의 id를 숫자로 변환 (이미지가 mem1부터 시작한다.)
 
   return (
