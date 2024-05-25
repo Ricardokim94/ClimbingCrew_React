@@ -1,9 +1,7 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit'
+import user from './store/userSlice'
 
-let user = createSlice({     //#useState()역할임.
-    name: 'user',           //state이름
-    initialState: 'kim'    //실제 값
-})
+
 
 let mem = createSlice({
     name: 'mem',
@@ -15,7 +13,7 @@ let mem = createSlice({
 })
 
 
-export default configureStore({ //#등록하는 것이라 생각하면 편함.ㄴ
+export default configureStore({ //#등록하는 것이라 생각하면 편함.
     reducer: {
         user: user.reducer,
         mem : mem.reducer

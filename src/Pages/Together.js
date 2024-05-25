@@ -1,20 +1,31 @@
 import { Table } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { changeName, increase } from "./../store/userSlice.js";
 
 function Together() {
     // Redux store에서 mem 데이터를 가져옵니다
     let mem = useSelector((state) => state.mem);
+    let state = useSelector((state) => state.user);
     console.log(mem);
+    let dispatch = useDispatch(); //store.js 로 요청보내주는 함수임
 
     return (
         <div>
+
+            <h6> {state.name} {state.age} 의 예약페이지 입니다.</h6>
+            
+            <button onClick={()=>{
+                dispatch((increase(100)))
+            }}>age ++
+            </button>
+
             <Table>
                 <thead>
                     <tr>
                         <th>#</th>
                         <th>이름</th>
                         <th>이달의 예약 횟수</th>
-                        <th>예약변경</th>
+                        <th>횟수권 추가</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -24,8 +35,11 @@ function Together() {
                             <td>{mem.name}</td>
                             <td>{mem.count}</td>
                             <td>
-                                <button className="btn btn-primary">추가</button>
-                                <button className="btn btn-secondary">삭제</button>
+                                <button onClick={()=>{
+                                   dispatch(changeName()) 
+                                }}>+</button>
+                                {/* <button className="btn btn-primary">추가</button>
+                                <button className="btn btn-secondary">삭제</button> */}
                             </td>
                         </tr>
                     ))}

@@ -21,7 +21,7 @@ function App() {
           <Navbar.Brand href="/">Oh-Coach Climbing Crew</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link onClick={() => navigate('/')}>Home</Nav.Link>
-            <Nav.Link onClick={() => navigate('/detail/0')}>Together</Nav.Link>
+            <Nav.Link onClick={() => navigate('/together')}>Together</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
