@@ -2,9 +2,9 @@ import { Table } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 function Together() {
-    // Redux store에서 shoes 데이터를 가져옵니다
-    let shoes = useSelector((state) => state.shoes);
-    console.log(shoes);
+    // Redux store에서 mem 데이터를 가져옵니다
+    let mem = useSelector((state) => state.mem);
+    console.log(mem);
 
     return (
         <div>
@@ -12,20 +12,20 @@ function Together() {
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>상품명</th>
-                        <th>수량</th>
-                        <th>변경하기</th>
+                        <th>이름</th>
+                        <th>이달의 예약 횟수</th>
+                        <th>예약변경</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {shoes.map((shoe, index) => (
-                        <tr key={shoe.id}>
+                    {mem.map((mem, index) => (
+                        <tr key={mem.id}>
                             <td>{index + 1}</td>
-                            <td>{shoe.name}</td>
-                            <td>{shoe.count}</td>
+                            <td>{mem.name}</td>
+                            <td>{mem.count}</td>
                             <td>
-                                <button className="btn btn-primary">수량 증가</button>
-                                <button className="btn btn-secondary">수량 감소</button>
+                                <button className="btn btn-primary">추가</button>
+                                <button className="btn btn-secondary">삭제</button>
                             </td>
                         </tr>
                     ))}
