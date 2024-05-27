@@ -1,23 +1,24 @@
 import { Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { changeName, increase } from "./../store/userSlice.js";
+//import { changeName, increase } from "./../store/userSlice.js";
+import { addCount } from "./../store.js";
 
 function Together() {
     // Redux store에서 mem 데이터를 가져옵니다
     let mem = useSelector((state) => state.mem);
-    let state = useSelector((state) => state.user);
+    //let state = useSelector((state) => state.user);
     console.log(mem);
     let dispatch = useDispatch(); //store.js 로 요청보내주는 함수임
 
     return (
         <div>
 
-            <h6> {state.name} {state.age} 의 예약페이지 입니다.</h6>
+            {/* <h6> {state.name} {state.age} 의 예약페이지 입니다.</h6>
             
             <button onClick={()=>{
                 dispatch((increase(100)))
             }}>age ++
-            </button>
+            </button> */}
 
             <Table>
                 <thead>
@@ -30,13 +31,13 @@ function Together() {
                 </thead>
                 <tbody>
                     {mem.map((mem, index) => (
-                        <tr key={mem.id}>
-                            <td>{index + 1}</td>
+                        <tr key={index}>
+                            <td>{mem.id}</td>
                             <td>{mem.name}</td>
                             <td>{mem.count}</td>
                             <td>
                                 <button onClick={()=>{
-                                   dispatch(changeName()) 
+                                   dispatch(addCount(mem.id)) //아이디값을 찾아와서 count++해줌
                                 }}>+</button>
                                 {/* <button className="btn btn-primary">추가</button>
                                 <button className="btn btn-secondary">삭제</button> */}

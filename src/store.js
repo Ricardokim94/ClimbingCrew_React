@@ -9,9 +9,20 @@ let mem = createSlice({
         [
             { id: 0, name: '창목', count: 2 },
             { id: 2, name: '영인', count: 1 }
-        ]
+        ],
+        reducers : {
+            //횟수권 추가 Logic
+            addCount(state, action){ //state 변경 함수
+                let checkId = state.findIndex((a)=>{ return a.id === action.payload}) //array에서 원하는 것 몇번쨰 있나 찾아주는 함수 (지금은 id)
+                state[checkId].count ++
+            },
+            //같이할래요 버튼누르면 state 상품 추가
+            addMember(state, action){
+                state.push(action.payload)
+            }
+        }
 })
-
+export let { addCount, addMember } = mem.actions 
 
 export default configureStore({ //#등록하는 것이라 생각하면 편함.
     reducer: {
