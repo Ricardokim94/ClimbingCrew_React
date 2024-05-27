@@ -7,8 +7,8 @@ let mem = createSlice({
     name: 'mem',
     initialState:
         [
-            { id: 0, name: '창목', count: 2 },
-            { id: 2, name: '영인', count: 1 }
+            // { id: 0, name: '창목', count: 2 },
+             { id: 2, name: '영인', count: 3 }
         ],
         reducers : {
             //횟수권 추가 Logic
