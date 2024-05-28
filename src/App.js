@@ -7,12 +7,20 @@ import Detail from './Pages/Detail.js';
 import Card from './Pages/Card.js';
 import Together from './Pages/Together.js';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
+  //새로고침 방지, 데이터 방지
+  useEffect(() => { // app을 실행하면 이 코드가 딱 먼저 실행된다.
+    if (!localStorage.getItem('watched')) {
+      localStorage.setItem('watched', JSON.stringify([])); // 최근 본 멤버 저장하기
+    }
+  }, []);                           
+
+
   let [member, setMember] = useState(memData);
   let navigate = useNavigate(); // 페이지 이동
-
+ 
   return (
     <div className="App">
       {/* NavBar */}

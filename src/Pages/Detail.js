@@ -11,7 +11,21 @@ function Detail(props) {
   let realId = props.member.find(x => x.id === memberIndex);
   let [tab, changeTab] = useState(0);
   let [fade2, setFade2] = useState('');
-  let navigate = useNavigate(); // useNavigate 훅 사용
+  let navigate = useNavigate(); // useNavigate 훅 사용 : 페이지 이동
+
+  useEffect(()=>{ //페이지에 보이는 id 가져와서 localStorage에 watched 항목에 추가
+    console.log('Real : ' , realId.id); //realId 가 실제 값인거 확인
+    
+    
+    let getRealId = localStorage.getItem('watched'); // localStorage에서 watched 항목을 꺼냄
+    getRealId = getRealId ? JSON.parse(getRealId) : []; // 항목이 없으면 빈 배열로 초기화
+
+    if (!getRealId.includes(realId.id)) { // 중복 검사
+      getRealId.push(realId.id); // 중복이 아닐 경우 id 추가
+      localStorage.setItem('watched', JSON.stringify(getRealId)); // 다시 localStorage에 넣기
+    }
+  },[realId.id])
+
 
   useEffect(() => {
     setFade2('end');

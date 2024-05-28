@@ -96,3 +96,20 @@ MainPage 분리 x
 // }
 
 // export default MainPage;
+
+
+##localStorage 사용법 : 개발자 F12에서 사용한다.
+*문자만 저장된다. 숫자로 해도 문자로 저장된다.
+    - localStorage.setItem('','') 
+    - 출력 : localStorage.getItem('') 
+    - 삭제 : localStorage.removeItem('') 
+
+*object 와 array 는 저장 안되고, JSON 으로 하면 가능하다.
+  let obj = {name : 'kim'}
+  localStorage.setItem('data',  JSON.stringify(obj)) //array/object -> Json변환 해야된다.
+  let tet = localStorage.getItem('data');
+  
+  console.log(JSON.parse(tet).name); //꺼낼때는 JSON 에서 array/object 로 변환해서 꺼낼수 있다.
+
+
+  
