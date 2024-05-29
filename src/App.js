@@ -8,6 +8,8 @@ import Card from './Pages/Card.js';
 import Together from './Pages/Together.js';
 
 import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useQuery } from 'react-query';
 
 function App() {
   //새로고침 방지, 데이터 방지
@@ -15,22 +17,37 @@ function App() {
     if (!localStorage.getItem('watched')) {
       localStorage.setItem('watched', JSON.stringify([])); // 최근 본 멤버 저장하기
     }
-  }, []);                           
-
+  }, []);
 
   let [member, setMember] = useState(memData);
   let navigate = useNavigate(); // 페이지 이동
- 
+
+  //react-query로 유저 이름 받아와 보기 (ajax)
+  let result = useQuery('userName', () =>
+    axios.get('https://codingapple1.github.io/userdata.json').then((a) => {
+      return a.data
+    })
+  )
+
+  
+
+
   return (
     <div className="App">
       {/* NavBar */}
-      <Navbar bg="dark" data-bs-theme="dark" className="navbar-custom">
+      <Navbar bg="light" data-bs-theme="light" className="navbar-custom">
         <Container>
           <Navbar.Brand href="/">Oh-Coach Climbing Crew</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link onClick={() => navigate('/')}>Home</Nav.Link>
             <Nav.Link onClick={() => navigate('/together')}>Together</Nav.Link>
           </Nav>
+          <Nav className="ms-auto"> 
+            { result.isLoading && '로딩중'} {/*로딩중일때 '로딩중입니다 보여짐 */}
+            { result.error && '에러남' }
+            { result.data && result.data.name }
+          </Nav>
+
         </Container>
       </Navbar>
 
@@ -64,7 +81,7 @@ function App() {
         } />
         <Route path="/detail/:id" element={<Detail member={member} />} />
 
-        <Route path="/together" element={ <Together/> } />
+        <Route path="/together" element={<Together />} />
 
       </Routes>
     </div>
