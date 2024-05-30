@@ -7,12 +7,11 @@ import Detail from './Pages/Detail.js';
 import Card from './Pages/Card.js';
 import Together from './Pages/Together.js';
 
-import { useEffect, useState, useTransition, useDeferredValue } from 'react';
+import { useEffect, useState} from 'react';
 import axios from 'axios';
 import { useQuery } from 'react-query';
 
-//useTransition
-let a = new Array(10000).fill(0)
+
 
 function App() {
   //새로고침 방지, 데이터 방지
@@ -32,10 +31,7 @@ function App() {
     })
   )
 
-  // useTransition 
-  let [name, setName] = useState('')
-  let [isPending, startTransition] = useTransition()//보통 이렇게 작명을 한다.
-  let state = useDeferredValue(name)
+  
   return (
     <div className="App">
       {/* NavBar */}
@@ -81,23 +77,7 @@ function App() {
                   console.log('실패했습니다.');
                 });
             }}>추가 맴버 더보기</button>
-
-            {/* useTransition 사용해보기 */}
-            {/* input 에다가 유저가 뭐라고 적으면 name 에다가 저장해주세요 */}
-            <input onChange={(e) => {
-              startTransition(() => { //늦게처리를 도와줌
-                setName(e.target.value)
-              })
-
-            }} />
-            {
-              isPending ? '로딩중' :
-                a.map((item, index) => {
-                  return <div key={index}>{state}</div>; // key 속성 추가
-                })
-            }
-
-
+            
           </>
         } />
         <Route path="/detail/:id" element={<Detail member={member} />} />
