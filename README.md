@@ -13,6 +13,6 @@
 [ Detail Page ]
 ![스크린샷 2024-05-29 오전 1 57 14](https://github.com/Ricardokim94/shop/assets/103867288/8670a227-7b99-47f6-9b14-44e156eff073)
 
-[ Together 횟수 페이 ]
+[ Together 횟수 Page ]
 ![스크린샷 2024-05-29 오전 1 57 34](https://github.com/Ricardokim94/shop/assets/103867288/9fbf6a2f-4bb6-4ffc-a685-273c216af1e0)
 
