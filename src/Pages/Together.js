@@ -1,13 +1,20 @@
 import { Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 //import { changeName, increase } from "./../store/userSlice.js";
-import { addCount } from "./../store.js";
+import { addCount, deleteCount } from "./../store.js";
 
 
 function Together() {
     let mem = useSelector((state) => state.mem); // Redux store에서 mem 데이터를 가져옵니다
     //console.log(mem);             //let state = useSelector((state) => state.user);
     let dispatch = useDispatch(); //store.js 로 요청보내주는 함수임
+    
+    const handleDelete = (id) => { //정말로 삭제할 건지 한번더 물어보는 alert
+        if (window.confirm('정말로 삭제하시겠습니까?')) {
+            dispatch(deleteCount(id));
+        }
+    };
+
     
     return (
         <div>
@@ -37,8 +44,7 @@ function Together() {
                                 <button onClick={()=>{
                                    dispatch(addCount(mem.id)) //아이디값을 찾아와서 count++해줌
                                 }}>+</button>
-                                {/* <button className="btn btn-primary">추가</button>
-                                <button className="btn btn-secondary">삭제</button> */}
+                                 <button style={{ marginLeft: '10px' }} className="btn btn-secondary" onClick={() => handleDelete(mem.id)}>삭제</button>
                             </td>
                         </tr>
                     ))}

@@ -19,6 +19,27 @@
 
 
 # reducer action dispatch
+    dispatch 함수를 통해 action 을 실행 시켰을 때 reducer가 호출되고 상태가 변경됨.
+    ex> dispatch(changName()) //상태 변경 후 { name : 'park', age : 20}    
+        dispatch(increase(5)) //상태 변경 후 { name: 'park', age: 25 }
+
+##payload : redux에서 action 이 추가 데이터를 포함할 수 있도록 하는 속성.
+            상태를 변경할 때 필요한 데이터를 전달하는데 사용됨.
+ex> 
+action 정의            
+    const incrementAction = {
+        type: 'INCREMENT',
+        payload: 5  // 증가시킬 값을 payload로 전달
+    };
+reducer 에서 'payload' 사용
+    function counterReducer(state = { count: 0 }, action) {
+    switch (action.type) {
+        case 'INCREMENT':
+            return { count: state.count + action.payload };  // payload 값을 사용하여 상태 변경
+        default:
+            return state;
+    }
+}
 
 
 
