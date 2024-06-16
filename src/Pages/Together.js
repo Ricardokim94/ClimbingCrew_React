@@ -44,7 +44,7 @@ function Together() {
                                 <button onClick={()=>{
                                    dispatch(addCount(mem.id)) //아이디값을 찾아와서 count++해줌
                                 }}>+</button>
-                                 <button style={{ marginLeft: '10px' }} className="btn btn-secondary" onClick={() => handleDelete(mem.id)}>삭제</button>
+                                 <button style={{ marginLeft: '10px' }} onClick={() => handleDelete(mem.id)}>삭제</button>
                             </td>
                         </tr>
                     ))}
